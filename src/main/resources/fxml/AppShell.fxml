@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<BorderPane xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1"
+            fx:controller="id.ac.campusfacility.controller.AppShellController"
+            prefWidth="1280" prefHeight="760" styleClass="bg-app">
+
+    <!-- Left Sidebar -->
+    <left>
+        <VBox styleClass="sidebar" spacing="0">
+            <!-- Brand -->
+            <VBox styleClass="sidebar-brand" spacing="4">
+                <Label text="FasiLink" styleClass="sidebar-title"/>
+                <Label text="Facility &amp; Schedule Manager" styleClass="sidebar-subtitle"/>
+            </VBox>
+
+            <!-- Navigation Menu -->
+            <VBox fx:id="navigationContainer" styleClass="sidebar-nav" spacing="6" VBox.vgrow="ALWAYS">
+                <Button fx:id="btnNavDashboard" text="📊  Dashboard" onAction="#handleNavDashboard"
+                        maxWidth="Infinity" styleClass="nav-item, active"/>
+                <Button fx:id="btnNavSchedule" text="📅  Jadwal Kampus" onAction="#handleNavSchedule"
+                        maxWidth="Infinity" styleClass="nav-item"/>
+                <Button fx:id="btnNavRooms" text="🏢  Data Ruangan" onAction="#handleNavRooms"
+                        maxWidth="Infinity" styleClass="nav-item"/>
+                <Button fx:id="btnNavInventory" text="📦  Data Inventaris" onAction="#handleNavInventory"
+                        maxWidth="Infinity" styleClass="nav-item"/>
+            </VBox>
+
+            <!-- Bottom User & Logout -->
+            <VBox spacing="10" style="-fx-padding: 16px; -fx-border-color: rgba(255,255,255,0.1) transparent transparent transparent; -fx-border-width: 1 0 0 0;">
+                <VBox spacing="2">
+                    <Label fx:id="sidebarUserName" text="User Name" style="-fx-text-fill: #FFFFFF; -fx-font-weight: bold; -fx-font-size: 13px;"/>
+                    <Label fx:id="sidebarUserRole" text="ROLE" style="-fx-text-fill: #8DA2C0; -fx-font-size: 11px;"/>
+                </VBox>
+                <Button text="🚪  Keluar (Logout)" onAction="#handleLogout"
+                        maxWidth="Infinity" styleClass="btn-danger" style="-fx-font-size: 12px;"/>
+            </VBox>
+        </VBox>
+    </left>
+
+    <!-- Top Header & Main Content -->
+    <center>
+        <BorderPane>
+            <!-- Top Header -->
+            <top>
+                <HBox styleClass="top-header" spacing="16">
+                    <Label fx:id="headerTitleLabel" text="Dashboard" styleClass="header-page-title" HBox.hgrow="ALWAYS"/>
+                    <Region HBox.hgrow="ALWAYS"/>
+                    <HBox alignment="CENTER_RIGHT" spacing="12">
+                        <Label fx:id="headerUserBadge" text="ADMINISTRATOR" styleClass="badge, badge-info"/>
+                        <Button text="Logout" onAction="#handleLogout" styleClass="btn-secondary" style="-fx-font-size: 12px; -fx-padding: 6px 14px;"/>
+                    </HBox>
+                </HBox>
+            </top>
+
+            <!-- Main Content Container -->
+            <center>
+                <StackPane fx:id="contentArea" style="-fx-padding: 24px;">
+                    <!-- Inner views are loaded dynamically here -->
+                </StackPane>
+            </center>
+        </BorderPane>
+    </center>
+</BorderPane>

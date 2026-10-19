@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<ScrollPane xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1"
+            fx:controller="id.ac.campusfacility.controller.AdminDashboardController"
+            fitToWidth="true" style="-fx-background-color: transparent;">
+
+    <VBox spacing="24" style="-fx-padding: 4px;">
+        <!-- Welcome Banner -->
+        <VBox styleClass="surface-card" spacing="8">
+            <Label text="Selamat Datang di Panel Administrator FasiLink" styleClass="heading-1"/>
+            <Label text="Pantau dan kelola master data fasilitas kampus, jadwal akademik, serta permohonan fasilitas secara real-time dari database."
+                   styleClass="text-muted"/>
+        </VBox>
+
+        <!-- Stat Cards Grid -->
+        <GridPane hgap="16" vgap="16">
+            <columnConstraints>
+                <ColumnConstraints percentWidth="33.3"/>
+                <ColumnConstraints percentWidth="33.3"/>
+                <ColumnConstraints percentWidth="33.3"/>
+            </columnConstraints>
+
+            <!-- Card 1: Ruangan -->
+            <VBox styleClass="stat-card" spacing="8" GridPane.columnIndex="0" GridPane.rowIndex="0">
+                <Label text="RUANGAN KAMPUS" styleClass="stat-label"/>
+                <HBox alignment="BASELINE_LEFT" spacing="6">
+                    <Label fx:id="activeRoomsLabel" text="-" styleClass="stat-value"/>
+                    <Label fx:id="totalRoomsLabel" text="/ - Total" styleClass="text-muted"/>
+                </HBox>
+                <Label text="Ruangan aktif siap digunakan" styleClass="text-muted"/>
+            </VBox>
+
+            <!-- Card 2: Inventaris -->
+            <VBox styleClass="stat-card" spacing="8" GridPane.columnIndex="1" GridPane.rowIndex="0">
+                <Label text="INVENTARIS &amp; STOK" styleClass="stat-label"/>
+                <HBox alignment="BASELINE_LEFT" spacing="6">
+                    <Label fx:id="availableStockLabel" text="-" styleClass="stat-value" style="-fx-text-fill: #237A4B;"/>
+                    <Label fx:id="totalStockLabel" text="/ - Total Unit" styleClass="text-muted"/>
+                </HBox>
+                <Label text="Stok fisik tersedia di sistem" styleClass="text-muted"/>
+            </VBox>
+
+            <!-- Card 3: Jadwal Kuliah -->
+            <VBox styleClass="stat-card" spacing="8" GridPane.columnIndex="2" GridPane.rowIndex="0">
+                <Label text="JADWAL PERKULIAHAN" styleClass="stat-label"/>
+                <HBox alignment="BASELINE_LEFT" spacing="6">
+                    <Label fx:id="totalSchedulesLabel" text="-" styleClass="stat-value"/>
+                    <Label text="Sesi Berulang" styleClass="text-muted"/>
+                </HBox>
+                <Label text="Jadwal aktif semester berjalan" styleClass="text-muted"/>
+            </VBox>
+
+            <!-- Card 4: Antrean Booking Ruangan -->
+            <VBox styleClass="stat-card" spacing="8" GridPane.columnIndex="0" GridPane.rowIndex="1">
+                <Label text="PENGAJUAN RUANGAN MENUNGGU" styleClass="stat-label"/>
+                <HBox alignment="BASELINE_LEFT" spacing="6">
+                    <Label fx:id="pendingBookingsLabel" text="-" styleClass="stat-value" style="-fx-text-fill: #946200;"/>
+                    <Label text="Permintaan" styleClass="text-muted"/>
+                </HBox>
+                <Label text="Menunggu persetujuan admin" styleClass="text-muted"/>
+            </VBox>
+
+            <!-- Card 5: Antrean Peminjaman Barang -->
+            <VBox styleClass="stat-card" spacing="8" GridPane.columnIndex="1" GridPane.rowIndex="1">
+                <Label text="PENGAJUAN BARANG MENUNGGU" styleClass="stat-label"/>
+                <HBox alignment="BASELINE_LEFT" spacing="6">
+                    <Label fx:id="pendingLoansLabel" text="-" styleClass="stat-value" style="-fx-text-fill: #946200;"/>
+                    <Label text="Permintaan" styleClass="text-muted"/>
+                </HBox>
+                <Label text="Menunggu verifikasi stok &amp; persetujuan" styleClass="text-muted"/>
+            </VBox>
+
+            <!-- Card 6: Total Jenis Barang -->
+            <VBox styleClass="stat-card" spacing="8" GridPane.columnIndex="2" GridPane.rowIndex="1">
+                <Label text="KATALOG BARANG" styleClass="stat-label"/>
+                <HBox alignment="BASELINE_LEFT" spacing="6">
+                    <Label fx:id="totalItemsLabel" text="-" styleClass="stat-value"/>
+                    <Label text="Jenis Barang" styleClass="text-muted"/>
+                </HBox>
+                <Label text="Tercatat dalam basis data" styleClass="text-muted"/>
+            </VBox>
+        </GridPane>
+
+        <!-- Quick Access Section -->
+        <VBox styleClass="surface-card" spacing="16">
+            <Label text="Aksi Cepat Fasilitas" styleClass="heading-2"/>
+            <HBox spacing="16">
+                <Button text="🏢  Kelola Data Ruangan" onAction="#handleManageRooms" styleClass="btn-primary"/>
+                <Button text="📦  Kelola Data Inventaris" onAction="#handleManageInventory" styleClass="btn-primary"/>
+                <Button text="📅  Buka Jadwal Perkuliahan" onAction="#handleViewSchedule" styleClass="btn-secondary"/>
+                <Button text="🔄  Segarkan Data" onAction="#loadStatistics" styleClass="btn-secondary"/>
+            </HBox>
+        </VBox>
+    </VBox>
+</ScrollPane>

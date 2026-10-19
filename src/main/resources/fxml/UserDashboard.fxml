@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<ScrollPane xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1"
+            fx:controller="id.ac.campusfacility.controller.UserDashboardController"
+            fitToWidth="true" style="-fx-background-color: transparent;">
+
+    <VBox spacing="24" style="-fx-padding: 4px;">
+        <!-- Welcome Banner -->
+        <VBox styleClass="surface-card" spacing="8">
+            <Label text="Selamat Datang di Portal Fasilitas Kampus FasiLink" styleClass="heading-1"/>
+            <Label text="Akses informasi perkuliahan, ketersediaan ruangan belajar, serta peminjaman sarana inventaris akademik secara mudah dan transparan."
+                   styleClass="text-muted"/>
+        </VBox>
+
+        <!-- Stat Cards Grid -->
+        <GridPane hgap="16" vgap="16">
+            <columnConstraints>
+                <ColumnConstraints percentWidth="33.3"/>
+                <ColumnConstraints percentWidth="33.3"/>
+                <ColumnConstraints percentWidth="33.3"/>
+            </columnConstraints>
+
+            <!-- Card 1: Ruangan Tersedia -->
+            <VBox styleClass="stat-card" spacing="8" GridPane.columnIndex="0">
+                <Label text="RUANGAN KAMPUS AKTIF" styleClass="stat-label"/>
+                <Label fx:id="activeRoomsLabel" text="-" styleClass="stat-value" style="-fx-text-fill: #2457A7;"/>
+                <Label text="Ruang kelas, lab, &amp; auditorium terdata" styleClass="text-muted"/>
+            </VBox>
+
+            <!-- Card 2: Barang Tersedia -->
+            <VBox styleClass="stat-card" spacing="8" GridPane.columnIndex="1">
+                <Label text="BARANG INVENTARIS TERSEDIA" styleClass="stat-label"/>
+                <Label fx:id="availableStockLabel" text="-" styleClass="stat-value" style="-fx-text-fill: #237A4B;"/>
+                <Label text="Unit barang siap digunakan / dipinjam" styleClass="text-muted"/>
+            </VBox>
+
+            <!-- Card 3: Jadwal Kuliah -->
+            <VBox styleClass="stat-card" spacing="8" GridPane.columnIndex="2">
+                <Label text="JADWAL PERKULIAHAN RESMI" styleClass="stat-label"/>
+                <Label fx:id="totalSchedulesLabel" text="-" styleClass="stat-value"/>
+                <Label text="Sesi kuliah aktif semester ini" styleClass="text-muted"/>
+            </VBox>
+        </GridPane>
+
+        <!-- Fast Shortcut Action Cards -->
+        <VBox styleClass="surface-card" spacing="16">
+            <Label text="Menu &amp; Fitur Utama" styleClass="heading-2"/>
+            <HBox spacing="16">
+                <Button text="📅  Lihat Jadwal Kuliah" onAction="#handleViewSchedule" styleClass="btn-primary"/>
+                <Button text="🏢  Cek Ruangan Kampus" onAction="#handleViewRooms" styleClass="btn-secondary"/>
+                <Button text="📦  Katalog Inventaris" onAction="#handleViewInventory" styleClass="btn-secondary"/>
+                <Button text="🔄  Segarkan" onAction="#loadStatistics" styleClass="btn-secondary"/>
+            </HBox>
+        </VBox>
+    </VBox>
+</ScrollPane>

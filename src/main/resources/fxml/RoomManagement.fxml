@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<VBox xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1"
+      fx:controller="id.ac.campusfacility.controller.RoomManagementController"
+      spacing="16" VBox.vgrow="ALWAYS">
+
+    <!-- Top Action & Search Bar -->
+    <HBox spacing="12" alignment="CENTER_LEFT" styleClass="surface-card" style="-fx-padding: 14px 20px;">
+        <TextField fx:id="searchField" promptText="🔍 Cari kode, nama ruangan, atau gedung..."
+                   prefWidth="320" styleClass="text-field"/>
+        <ComboBox fx:id="statusFilterCombo" prefWidth="160" promptText="Status Ruangan" styleClass="combo-box"/>
+        <Region HBox.hgrow="ALWAYS"/>
+        <Button text="🔄 Segarkan" onAction="#handleRefresh" styleClass="btn-secondary"/>
+        <Button fx:id="btnAddRoom" text="➕ Tambah Ruangan" onAction="#handleOpenAddDialog" styleClass="btn-primary"/>
+    </HBox>
+
+    <!-- Table Container -->
+    <VBox styleClass="surface-card" spacing="12" VBox.vgrow="ALWAYS" style="-fx-padding: 16px;">
+        <TableView fx:id="roomsTable" VBox.vgrow="ALWAYS" styleClass="table-view">
+            <columns>
+                <TableColumn fx:id="colRoomCode" text="Kode Ruang" prefWidth="120"/>
+                <TableColumn fx:id="colRoomName" text="Nama Ruangan" prefWidth="240"/>
+                <TableColumn fx:id="colBuilding" text="Gedung" prefWidth="180"/>
+                <TableColumn fx:id="colFloor" text="Lantai" prefWidth="80"/>
+                <TableColumn fx:id="colCapacity" text="Kapasitas" prefWidth="100"/>
+                <TableColumn fx:id="colDescription" text="Keterangan / Fasilitas" prefWidth="220"/>
+                <TableColumn fx:id="colStatus" text="Status" prefWidth="110"/>
+                <TableColumn fx:id="colActions" text="Aksi" prefWidth="160"/>
+            </columns>
+            <placeholder>
+                <VBox alignment="CENTER" spacing="8" styleClass="empty-state-pane">
+                    <Label text="Tidak ada data ruangan ditemukan." styleClass="empty-state-title"/>
+                    <Label text="Gunakan kata kunci lain atau tambahkan data ruangan baru." styleClass="empty-state-subtitle"/>
+                </VBox>
+            </placeholder>
+        </TableView>
+
+        <!-- Summary Footer -->
+        <HBox alignment="CENTER_LEFT" spacing="12">
+            <Label fx:id="totalRoomsLabel" text="Memuat data ruangan..." styleClass="text-muted"/>
+        </HBox>
+    </VBox>
+</VBox>

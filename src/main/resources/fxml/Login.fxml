@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<HBox xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1"
+      fx:controller="id.ac.campusfacility.controller.LoginController"
+      alignment="CENTER" styleClass="bg-app" spacing="0">
+
+    <!-- Left Brand Sidebar -->
+    <VBox prefWidth="480" maxWidth="480" alignment="CENTER_LEFT" spacing="24"
+          style="-fx-background-color: #172B4D; -fx-padding: 48px 40px;" HBox.hgrow="ALWAYS">
+        <VBox spacing="8">
+            <Label text="FasiLink" style="-fx-text-fill: #FFFFFF; -fx-font-size: 32px; -fx-font-weight: bold;"/>
+            <Label text="Campus Facility &amp; Schedule Manager" style="-fx-text-fill: #8DA2C0; -fx-font-size: 14px; -fx-font-weight: bold;"/>
+        </VBox>
+
+        <Label text="Sistem informasi terintegrasi untuk pengelolaan jadwal perkuliahan, ketersediaan ruangan kampus, dan inventaris fasilitas akademik."
+               wrapText="true" style="-fx-text-fill: #C2D1E5; -fx-font-size: 13px; -fx-line-spacing: 4px;"/>
+
+        <VBox spacing="10" style="-fx-background-color: rgba(255,255,255,0.06); -fx-background-radius: 8px; -fx-padding: 16px;">
+            <Label text="Akun Percobaan (Demo Seed):" style="-fx-text-fill: #FFFFFF; -fx-font-weight: bold; -fx-font-size: 12px;"/>
+            <Label text="• Admin: admin / admin123" style="-fx-text-fill: #8DA2C0; -fx-font-size: 12px;"/>
+            <Label text="• User: user / user123" style="-fx-text-fill: #8DA2C0; -fx-font-size: 12px;"/>
+        </VBox>
+    </VBox>
+
+    <!-- Right Login Card Form -->
+    <VBox alignment="CENTER" HBox.hgrow="ALWAYS" style="-fx-padding: 48px;">
+        <VBox maxWidth="440" spacing="20" styleClass="surface-card">
+            <VBox spacing="6">
+                <Label text="Masuk ke Akun Anda" styleClass="heading-1"/>
+                <Label text="Silakan masukkan username dan password untuk melanjutkan" styleClass="text-muted"/>
+            </VBox>
+
+            <!-- Error Box -->
+            <HBox fx:id="errorBox" visible="false" managed="false" styleClass="alert-box, alert-box-error">
+                <Label fx:id="errorMessageLabel" text="" wrapText="true" style="-fx-text-fill: #B42318; -fx-font-size: 12px;"/>
+            </HBox>
+
+            <!-- Form Fields -->
+            <VBox spacing="14">
+                <VBox spacing="6">
+                    <Label text="Username" styleClass="form-label"/>
+                    <TextField fx:id="usernameField" promptText="Masukkan username Anda" styleClass="text-field"/>
+                </VBox>
+
+                <VBox spacing="6">
+                    <Label text="Password" styleClass="form-label"/>
+                    <PasswordField fx:id="passwordField" promptText="Masukkan password Anda" styleClass="password-field"/>
+                </VBox>
+            </VBox>
+
+            <!-- Action -->
+            <VBox spacing="12">
+                <Button fx:id="loginButton" text="Masuk ke Sistem" onAction="#handleLogin"
+                        maxWidth="Infinity" defaultButton="true" styleClass="btn-primary" style="-fx-padding: 10px;"/>
+                <ProgressIndicator fx:id="progressIndicator" visible="false" managed="false" prefWidth="24" prefHeight="24"/>
+            </VBox>
+        </VBox>
+    </VBox>
+</HBox>

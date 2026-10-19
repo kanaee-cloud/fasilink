@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<VBox xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1"
+      fx:controller="id.ac.campusfacility.controller.InventoryManagementController"
+      spacing="16" VBox.vgrow="ALWAYS">
+
+    <!-- Top Action & Search Bar -->
+    <HBox spacing="12" alignment="CENTER_LEFT" styleClass="surface-card" style="-fx-padding: 14px 20px;">
+        <TextField fx:id="searchField" promptText="🔍 Cari kode atau nama barang inventaris..."
+                   prefWidth="320" styleClass="text-field"/>
+        <ComboBox fx:id="statusFilterCombo" prefWidth="160" promptText="Status Barang" styleClass="combo-box"/>
+        <Region HBox.hgrow="ALWAYS"/>
+        <Button text="🔄 Segarkan" onAction="#handleRefresh" styleClass="btn-secondary"/>
+        <Button fx:id="btnAddItem" text="➕ Tambah Barang" onAction="#handleOpenAddDialog" styleClass="btn-primary"/>
+    </HBox>
+
+    <!-- Table Container -->
+    <VBox styleClass="surface-card" spacing="12" VBox.vgrow="ALWAYS" style="-fx-padding: 16px;">
+        <TableView fx:id="inventoryTable" VBox.vgrow="ALWAYS" styleClass="table-view">
+            <columns>
+                <TableColumn fx:id="colItemCode" text="Kode Barang" prefWidth="110"/>
+                <TableColumn fx:id="colItemName" text="Nama Barang" prefWidth="240"/>
+                <TableColumn fx:id="colDescription" text="Spesifikasi / Deskripsi" prefWidth="240"/>
+                <TableColumn fx:id="colTotalQuantity" text="Total Unit" prefWidth="90"/>
+                <TableColumn fx:id="colAvailableQuantity" text="Stok Tersedia" prefWidth="110"/>
+                <TableColumn fx:id="colCondition" text="Catatan Kondisi" prefWidth="200"/>
+                <TableColumn fx:id="colStatus" text="Status" prefWidth="100"/>
+                <TableColumn fx:id="colActions" text="Aksi" prefWidth="160"/>
+            </columns>
+            <placeholder>
+                <VBox alignment="CENTER" spacing="8" styleClass="empty-state-pane">
+                    <Label text="Tidak ada data barang inventaris ditemukan." styleClass="empty-state-title"/>
+                    <Label text="Silakan periksa kata kunci pencarian atau tambahkan barang baru." styleClass="empty-state-subtitle"/>
+                </VBox>
+            </placeholder>
+        </TableView>
+
+        <!-- Summary Footer -->
+        <HBox alignment="CENTER_LEFT" spacing="12">
+            <Label fx:id="summaryLabel" text="Memuat data inventaris..." styleClass="text-muted"/>
+        </HBox>
+    </VBox>
+</VBox>

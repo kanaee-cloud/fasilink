@@ -1,0 +1,316 @@
+/* FasiLink - Campus Facility & Schedule Manager Design System */
+
+.root {
+    -fx-font-family: 'Segoe UI', 'San Francisco', Helvetica, Arial, sans-serif;
+    -fx-font-size: 13px;
+    -fx-background-color: #F5F7FA;
+}
+
+/* Backgrounds & Surfaces */
+.bg-app {
+    -fx-background-color: #F5F7FA;
+}
+
+.surface-card {
+    -fx-background-color: #FFFFFF;
+    -fx-background-radius: 10px;
+    -fx-border-color: #DCE2EA;
+    -fx-border-radius: 10px;
+    -fx-border-width: 1px;
+    -fx-padding: 20px;
+    -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.03), 8, 0, 0, 2);
+}
+
+.surface-card-header {
+    -fx-border-color: transparent transparent #E5E9F0 transparent;
+    -fx-border-width: 0 0 1 0;
+    -fx-padding: 0 0 12 0;
+}
+
+/* Sidebar */
+.sidebar {
+    -fx-background-color: #172B4D;
+    -fx-pref-width: 240px;
+}
+
+.sidebar-brand {
+    -fx-padding: 24px 20px;
+    -fx-border-color: transparent transparent rgba(255,255,255,0.1) transparent;
+    -fx-border-width: 0 0 1 0;
+}
+
+.sidebar-title {
+    -fx-text-fill: #FFFFFF;
+    -fx-font-size: 20px;
+    -fx-font-weight: bold;
+}
+
+.sidebar-subtitle {
+    -fx-text-fill: #8DA2C0;
+    -fx-font-size: 11px;
+}
+
+.sidebar-nav {
+    -fx-padding: 16px 12px;
+}
+
+.nav-item {
+    -fx-background-color: transparent;
+    -fx-text-fill: #C2D1E5;
+    -fx-font-size: 13px;
+    -fx-font-weight: normal;
+    -fx-alignment: BASELINE_LEFT;
+    -fx-padding: 10px 16px;
+    -fx-background-radius: 8px;
+    -fx-cursor: hand;
+}
+
+.nav-item:hover {
+    -fx-background-color: rgba(255, 255, 255, 0.08);
+    -fx-text-fill: #FFFFFF;
+}
+
+.nav-item.active {
+    -fx-background-color: #2457A7;
+    -fx-text-fill: #FFFFFF;
+    -fx-font-weight: bold;
+}
+
+/* Header */
+.top-header {
+    -fx-background-color: #FFFFFF;
+    -fx-border-color: transparent transparent #DCE2EA transparent;
+    -fx-border-width: 0 0 1 0;
+    -fx-padding: 14px 28px;
+    -fx-alignment: CENTER_LEFT;
+}
+
+.header-page-title {
+    -fx-font-size: 18px;
+    -fx-font-weight: bold;
+    -fx-text-fill: #172033;
+}
+
+.header-user-badge {
+    -fx-text-fill: #657187;
+    -fx-font-size: 12px;
+}
+
+/* Typography */
+.heading-1 {
+    -fx-font-size: 24px;
+    -fx-font-weight: bold;
+    -fx-text-fill: #172033;
+}
+
+.heading-2 {
+    -fx-font-size: 18px;
+    -fx-font-weight: bold;
+    -fx-text-fill: #172033;
+}
+
+.heading-3 {
+    -fx-font-size: 15px;
+    -fx-font-weight: bold;
+    -fx-text-fill: #172033;
+}
+
+.text-muted {
+    -fx-text-fill: #657187;
+    -fx-font-size: 12px;
+}
+
+/* Buttons */
+.btn-primary {
+    -fx-background-color: #2457A7;
+    -fx-text-fill: #FFFFFF;
+    -fx-font-size: 13px;
+    -fx-font-weight: bold;
+    -fx-background-radius: 6px;
+    -fx-padding: 8px 18px;
+    -fx-cursor: hand;
+}
+
+.btn-primary:hover {
+    -fx-background-color: #1C4587;
+}
+
+.btn-secondary {
+    -fx-background-color: #FFFFFF;
+    -fx-text-fill: #172033;
+    -fx-border-color: #DCE2EA;
+    -fx-border-radius: 6px;
+    -fx-background-radius: 6px;
+    -fx-font-size: 13px;
+    -fx-padding: 8px 16px;
+    -fx-cursor: hand;
+}
+
+.btn-secondary:hover {
+    -fx-background-color: #F1F4F9;
+}
+
+.btn-danger {
+    -fx-background-color: #B42318;
+    -fx-text-fill: #FFFFFF;
+    -fx-font-size: 12px;
+    -fx-font-weight: bold;
+    -fx-background-radius: 6px;
+    -fx-padding: 6px 14px;
+    -fx-cursor: hand;
+}
+
+.btn-danger:hover {
+    -fx-background-color: #911A11;
+}
+
+/* Form Controls */
+.text-field, .password-field, .combo-box, .date-picker {
+    -fx-background-color: #FFFFFF;
+    -fx-border-color: #DCE2EA;
+    -fx-border-radius: 6px;
+    -fx-background-radius: 6px;
+    -fx-padding: 8px 12px;
+    -fx-font-size: 13px;
+    -fx-text-fill: #172033;
+}
+
+.text-field:focused, .password-field:focused, .combo-box:focused, .date-picker:focused {
+    -fx-border-color: #2457A7;
+    -fx-effect: dropshadow(three-pass-box, rgba(36,87,167,0.2), 4, 0, 0, 0);
+}
+
+.form-label {
+    -fx-font-size: 12px;
+    -fx-font-weight: bold;
+    -fx-text-fill: #172033;
+}
+
+/* Badges & Status */
+.badge {
+    -fx-background-radius: 12px;
+    -fx-padding: 4px 10px;
+    -fx-font-size: 11px;
+    -fx-font-weight: bold;
+}
+
+.badge-success {
+    -fx-background-color: #E6F4EA;
+    -fx-text-fill: #237A4B;
+}
+
+.badge-warning {
+    -fx-background-color: #FEF7E0;
+    -fx-text-fill: #946200;
+}
+
+.badge-danger {
+    -fx-background-color: #FCE8E6;
+    -fx-text-fill: #B42318;
+}
+
+.badge-info {
+    -fx-background-color: #E8F0FE;
+    -fx-text-fill: #2457A7;
+}
+
+/* Tables */
+.table-view {
+    -fx-background-color: #FFFFFF;
+    -fx-border-color: #DCE2EA;
+    -fx-border-radius: 8px;
+    -fx-background-radius: 8px;
+    -fx-padding: 0;
+}
+
+.table-view .column-header-background {
+    -fx-background-color: #F8FAFC;
+    -fx-border-color: transparent transparent #DCE2EA transparent;
+    -fx-border-width: 0 0 1 0;
+}
+
+.table-view .column-header {
+    -fx-background-color: transparent;
+    -fx-padding: 10px 8px;
+    -fx-font-size: 12px;
+    -fx-font-weight: bold;
+    -fx-text-fill: #475467;
+}
+
+.table-view .table-row-cell {
+    -fx-background-color: #FFFFFF;
+    -fx-border-color: transparent transparent #F1F4F9 transparent;
+    -fx-border-width: 0 0 1 0;
+    -fx-padding: 6px 0;
+}
+
+.table-view .table-row-cell:odd {
+    -fx-background-color: #FCFDFE;
+}
+
+.table-view .table-row-cell:selected {
+    -fx-background-color: #EBF2FC;
+}
+
+.table-view .table-cell {
+    -fx-text-fill: #172033;
+    -fx-font-size: 12px;
+    -fx-alignment: CENTER_LEFT;
+}
+
+/* Stat Cards */
+.stat-card {
+    -fx-background-color: #FFFFFF;
+    -fx-background-radius: 10px;
+    -fx-border-color: #DCE2EA;
+    -fx-border-radius: 10px;
+    -fx-padding: 18px 22px;
+    -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.03), 8, 0, 0, 2);
+}
+
+.stat-value {
+    -fx-font-size: 28px;
+    -fx-font-weight: bold;
+    -fx-text-fill: #172033;
+}
+
+.stat-label {
+    -fx-font-size: 13px;
+    -fx-text-fill: #657187;
+    -fx-font-weight: 500;
+}
+
+/* Empty State & Alerts */
+.empty-state-pane {
+    -fx-padding: 40px;
+    -fx-alignment: CENTER;
+}
+
+.empty-state-title {
+    -fx-font-size: 16px;
+    -fx-font-weight: bold;
+    -fx-text-fill: #172033;
+}
+
+.empty-state-subtitle {
+    -fx-font-size: 13px;
+    -fx-text-fill: #657187;
+}
+
+.alert-box {
+    -fx-background-radius: 8px;
+    -fx-padding: 12px 16px;
+    -fx-border-radius: 8px;
+}
+
+.alert-box-error {
+    -fx-background-color: #FCE8E6;
+    -fx-border-color: #F5C6CB;
+    -fx-text-fill: #B42318;
+}
+
+.alert-box-success {
+    -fx-background-color: #E6F4EA;
+    -fx-border-color: #C3E6CB;
+    -fx-text-fill: #237A4B;
+}

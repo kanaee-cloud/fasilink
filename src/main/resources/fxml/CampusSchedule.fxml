@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<VBox xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1"
+      fx:controller="id.ac.campusfacility.controller.CampusScheduleController"
+      spacing="16" VBox.vgrow="ALWAYS">
+
+    <!-- Filter & Action Bar -->
+    <HBox spacing="12" alignment="CENTER_LEFT" styleClass="surface-card" style="-fx-padding: 14px 20px;">
+        <TextField fx:id="searchField" promptText="🔍 Cari mata kuliah, dosen, atau kelas..."
+                   prefWidth="280" styleClass="text-field"/>
+        <ComboBox fx:id="dayFilterCombo" prefWidth="140" promptText="Pilih Hari" styleClass="combo-box"/>
+        <ComboBox fx:id="roomFilterCombo" prefWidth="180" promptText="Pilih Ruangan" styleClass="combo-box"/>
+        <Region HBox.hgrow="ALWAYS"/>
+        <Button text="🔄 Segarkan" onAction="#handleRefresh" styleClass="btn-secondary"/>
+        <Button fx:id="btnAddSchedule" text="➕ Tambah Jadwal" onAction="#handleOpenAddDialog" styleClass="btn-primary"/>
+    </HBox>
+
+    <!-- Schedule Table Container -->
+    <VBox styleClass="surface-card" spacing="12" VBox.vgrow="ALWAYS" style="-fx-padding: 16px;">
+        <TableView fx:id="scheduleTable" VBox.vgrow="ALWAYS" styleClass="table-view">
+            <columns>
+                <TableColumn fx:id="colDay" text="Hari" prefWidth="100"/>
+                <TableColumn fx:id="colTime" text="Waktu Kuliah" prefWidth="140"/>
+                <TableColumn fx:id="colCourseCode" text="Kode MK" prefWidth="100"/>
+                <TableColumn fx:id="colCourseName" text="Mata Kuliah" prefWidth="260"/>
+                <TableColumn fx:id="colClass" text="Kelas" prefWidth="90"/>
+                <TableColumn fx:id="colLecturer" text="Dosen Pengampu" prefWidth="240"/>
+                <TableColumn fx:id="colRoom" text="Ruangan" prefWidth="140"/>
+                <TableColumn fx:id="colActions" text="Aksi" prefWidth="90"/>
+            </columns>
+            <placeholder>
+                <VBox alignment="CENTER" spacing="8" styleClass="empty-state-pane">
+                    <Label text="Tidak ada jadwal perkuliahan yang sesuai filter." styleClass="empty-state-title"/>
+                    <Label text="Silakan sesuaikan pilihan hari, ruangan, atau kata kunci pencarian Anda." styleClass="empty-state-subtitle"/>
+                </VBox>
+            </placeholder>
+        </TableView>
+
+        <!-- Summary Footer -->
+        <HBox alignment="CENTER_LEFT" spacing="12">
+            <Label fx:id="summaryLabel" text="Memuat jadwal perkuliahan..." styleClass="text-muted"/>
+        </HBox>
+    </VBox>
+</VBox>
